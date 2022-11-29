@@ -1,13 +1,17 @@
 package com.me.sample.ui.view;
 
+import static com.bumptech.glide.Glide.*;
+
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
 import androidx.databinding.BindingAdapter;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.android.material.imageview.ShapeableImageView;
-import com.me.sample.BaseApplication;
+import com.me.sample.application.BaseApplication;
+import com.me.sample.R;
 
 public class CustomImageView extends ShapeableImageView {
 
@@ -29,16 +33,36 @@ public class CustomImageView extends ShapeableImageView {
         super(context, attrs);
     }
 
-// 问题出在这:用了个框架,这里框架没导进来
+// 找到一个网络上的相关介绍: https://segmentfault.com/a/1190000042056504
+// 伪代码，请勿直接cv: 现在是,不明白应该把这个绑定在哪里设置 
+/** 
+ * 用于appCompatImageView的自定义属性，bind:imgSrc，命名空间bind:可以省略，也就是写作 imgSrc亦可。可以用于加载url的图片
+ * 函数名也是随意，主要是value的声明，就是新加的属性名了，可以多个属性同用，并配置是否必须一起作用
+ * 函数名随意，方法签名才重要，匹配对象控件，以及属性参数。
+ * 这里还可以添加old 参数，获取修改新参数 之前对应的值。
+ * todo 加载网络图片，需要网络权限!!!
+ // AppCompatImageView
+ // ImageView
+ */
+    // @JvmStatic
+    // @BindingAdapter(value = ["bind:imgUrl"], requireAll = false) // imgSrc ==> imgUrl
+    // fun setImgUrl(view:AppCompatImageView, /*old: String?, */url: String) {
+    //     Glide.with(view)
+    //         .load(url)
+    //         .asGif()
+    //         .placeholder(R.drawable.ic_launcher)
+    //         .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+    //         .error(R.mipmap.ic_launcher_round)
+    //         // .centerInside()
+    //         .into(view)
+    // }
+// 下面是我从前项目中,直接复制过来的java源码
     @BindingAdapter(value = {"imgUrl"}, requireAll = false)
-    public static void setImgUrl(ImageView imageView, String url) {
-// 下面是加载图片的        
-        // Glide.with(BaseApplication.Companion.getApplicationContext()).load(url).into(imageView);
-        Glide.with(BaseApplication.Companion.getApplicationContext())
-            .load(url)
+    public void setImgUrl(ImageView imageView, String url) {
+        with(this)
             .asGif()
+            .load(url)
             .placeholder(R.mipmap.ic_launcher)
-            .diskCacheStrategy(DiskCacheStrategy.SOURCE)
             .error(R.mipmap.ic_launcher_round)
             .into(imageView);
     }

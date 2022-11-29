@@ -1,7 +1,9 @@
 package com.me.sample.ui
 
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import com.me.sample.repository.StateLiveData
+import com.me.sample.utils.loge
 
 open class BaseActivity : AppCompatActivity() {
 
@@ -11,6 +13,7 @@ open class BaseActivity : AppCompatActivity() {
                                        StateLiveData.State.Loading -> showLoading()
                                        StateLiveData.State.Error -> showEror()
                                        StateLiveData.State.Success -> hideLoading()
+                                       else -> {loge("when will go to else here ?")}
                                    }
         })
         return liveData

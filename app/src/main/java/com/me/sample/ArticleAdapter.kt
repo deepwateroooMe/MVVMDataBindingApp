@@ -1,10 +1,16 @@
-package com.me.sample.adapters
+package com.me.sample
 
-class ArticleAdapter (private val mList: List<Data>) : RecyclerView.Adapter<ArticleAdapter.MyViewHolder>() {
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.RecyclerView
+import com.me.sample.ArticleAdapter.MyViewHolder
+import com.me.sample.databinding.LayoutItemBinding
+import com.me.sample.model.Data
 
+class ArticleAdapter(private val mList: List<Data>) : RecyclerView.Adapter<MyViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.layout_item, parent, false)
-
         // 不知道lay_item.xml自动生成的databinding 类的名字,两个这里是否写对了 ?        
         val bind = DataBindingUtil.bind<LayoutItemBinding>(v)
         return bind?.let { MyViewHolder(it) }!!
@@ -16,9 +22,7 @@ class ArticleAdapter (private val mList: List<Data>) : RecyclerView.Adapter<Arti
         val binding = holder.binding
         binding.data = mList[position]
     }
-
-    // TODO: 这里,关于单个条目中的动态图片加载,这里还需要再多一点儿的工作 GLIDE 图库加载
-    // 跟自己以前的版本对比,搜索一下,找一个解决方案
+    // 在构造函数中声明binding变量，这样holder才能引用到，如果不加val/var，就引用不到，就需要在class的{}内写get函数
     inner class MyViewHolder(
         var binding: LayoutItemBinding
     ) : RecyclerView.ViewHolder(binding.root)

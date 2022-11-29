@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+  <data>
+    <variable
+        name="adapter"
+        type="com.me.sample.ArticleAdapter"/>
+  </data>
+
+  <!-- 因为改用了AndroidX RecyclerView,我就不能再用ListView的这种了,其实我也可以先试一下是否能如预期运行 -->
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        app:adapter="@{adapter}"
+        android:layout_height="match_parent">
+
+    </androidx.recyclerview.widget.RecyclerView>
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,5 +1,12 @@
 package com.me.sample.ui
 
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
+import android.graphics.Rect
+import android.view.View
+import androidx.recyclerview.widget.RecyclerView
+
 // AndroidX RecyclerView 子项目之间的隔条装饰 自定义类 (这里好像是把每个子项周围画了个圈 ? 不是圈,是横线隔条)
 class DividerItemDecoration(val height: Int, val color: String) : RecyclerView.ItemDecoration() {
 

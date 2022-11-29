@@ -1,4 +1,4 @@
-package com.me.sample
+package com.me.sample.application
 
 import android.app.Application
 

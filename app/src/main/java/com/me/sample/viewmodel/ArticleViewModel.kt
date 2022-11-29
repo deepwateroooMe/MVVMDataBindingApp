@@ -1,6 +1,7 @@
 package com.me.sample.viewmodel
 
-import android.provider.ContactsContract.Contacts.Data
+import com.me.sample.model.Data
+import com.me.sample.repository.ArticleRepository
 import com.me.sample.repository.StateLiveData
 
 class ArticleViewModel(private val respository: ArticleRepository) : BaseViewModel() {
