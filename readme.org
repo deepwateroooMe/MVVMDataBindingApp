@@ -1,0 +1,47 @@
+#+latex_class: cn-article
+#+title: 一个小应用 -- 爱表哥,爱生活!!!
+#+author: deepwaterooo 
+
+* 大致设计计划 
+- 用kotlin语言,现在用这些新点儿的其它非java语言没有任何障碍.最主要就是熟悉一下新语言下设计布局layout等构建一个安卓应用的过程
+- 我觉得用 compose应该是最好的,可是这次暂时不用这个,等kotlin语言写得再熟悉一点儿再写那个包
+- MVVM: UI -> ViewModel -> Repository -> NetWork/Dao
+  - 箭头是单项的，也就是说，ViewModel持有Repository的引用，反过来没有，否则容易内存泄漏。
+  - 网络请求使用的是Retrofit,数据库Dao层这里省略了，最近太忙，等有时间再补充上去。Repository(仓库),负责提供数据，该数据可以从网络去取，也可以从数据库去取，
+  - ViewModel持有Repository的引用，也就是可以将仓库的数据拿来自己持有，然后将数据给到UI层。大致的流程就是这样。
+- 下面我们说一下项目中的细节：
+  - 先思考一个问题？在项目中，我们使用协程，当页面销毁的时候，我们怎么取消请求？
+  - 这里我么使用ViewModel自带的viewModelScope.launch,他会在页面销毁的时候自动取消请求，不过必须要使用AndroidX,我们可以写一个BaseViewModel
+
+* 要求
+** Description:
+- ● A simple Android app which will display a list or grid of news ar�cles
+  - retrieved from the Giphy API.
+- ● Giphy
+- URL: https://api.giphy.com/v1/gifs/trending
+  - https://api.giphy.com/v1/gifs/trending/api_key=EEjeWKnay8eNwJ091mC2ffGuQe96tdBN
+  - https://api.giphy.com/v1/gifs/trending/?key=EEjeWKnay8eNwJ091mC2ffGuQe96tdBN
+  - Values: api_key
+  - API Key: EEjeWKnay8eNwJ091mC2ffGuQe96tdBN
+- 上面的都不行.用网上搜到的这个链接来试
+- https://api.giphy.com/v1/gifs/search?api_key=3eFQvabDx69SMoOemSPiYfh9FY0nzO9x&q=keyword&offset=0&limit=100
+  
+[[./pic/readme_20221128_194628.png]]
+- 从上面的网络反应来看,我的设计太简单了,它可能最外层还需要嵌套androidx jetpack family paging之类相关的东西?需要网上查确认一下
+- 我觉得我不要把这个地方想得太复杂了,它更多的应该是说它网络服务器里的内容很多,能够返回给用户的就是这些而已.而我应该就是把这些显示到recyclerview里就可以了,我应该可以暂时不用考虑paging 相关的.
+- 但是现在能够拿到网络返回结果,需要把网络数据解析好,真正加载出来
+- 晚一点儿再来看这个东西,先把现在已有的设计运行好
+- ● Requirements:
+  - Display List of the results.
+- ● Results should display:
+  - ○ GIFs
+  - ○ headline text
+** Summary:
+- ● Please write code that you feel proud of and would check in to
+  - source control or send it to recruiter. Kotlin is preferred.
+- ● Please be thorough in your implementation details.
+- ● Please focus on App Architecture and android best practices.
+- ● Bonus points:
+  - ○ Implementing application using logical components
+  - ○ Unit test coverage
+  - ○ Finish project quickly is a plus
