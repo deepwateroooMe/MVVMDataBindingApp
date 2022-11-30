@@ -81,8 +81,8 @@ dependencies {
     
     // // android-gif-drawable 地址：https://github.com/koral--/android-gif-drawable    
     // implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.7' // 这个是项目里暂时还没有用到,晚些时候可能会调试用
-    // // coil: 图片加载库 (这个暂时还没有用)   
-    //     implementation("io.coil-kt:coil:1.1.1")
+    // coil: 图片加载库 (这个暂时还没有用)   
+        implementation("io.coil-kt:coil:1.1.1")
 
     // implementation 'androidx.core:core-ktx:1.3.1'
     // implementation 'androidx.appcompat:appcompat:1.1.0' 

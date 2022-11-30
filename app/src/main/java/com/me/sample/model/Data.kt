@@ -8,11 +8,13 @@ data class Data (
     val url: String, // <<<<<<<<<<<<<<<<<<<< 
     val slug: String,
     val bitly_gif_url: String,
+
     val bitly_url: String, 
     val embed_url: String, 
     val username: String, 
     val source: String, 
     val title: String, // <<<<<<<<<<<<<<<<<<<< 
+
     val rating: String, 
     val content_url: String, 
     val source_tld: String, 

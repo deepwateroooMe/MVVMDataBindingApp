@@ -1,6 +1,6 @@
 package com.me.sample.model
 
-class Meta {
+class Meta(i: Int, s: String, s1: String) {
     val status: Int = 200
     var msg: String = "OK"
     var response_id: String = "61732"

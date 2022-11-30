@@ -29,7 +29,7 @@
 
     <!-- android:id="@+id/imgView" -->
     <!-- <com.me.sample.ui.view.CustomImageView -->
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/tv_title"

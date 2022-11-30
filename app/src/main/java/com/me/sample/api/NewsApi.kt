@@ -15,6 +15,9 @@ import java.util.concurrent.TimeUnit
 
 interface NewsApi {
 
+// 我觉得,现在的问题是:在规定的网络请求时间内,无法读完大量的网络数据,想要改写为流式读取,看能否读完?先网上搜一下    
     @GET("/v1/gifs/trending?api_key=" + BuildConfig.API_KEY) 
-    fun getArticle(): Call<BaseRes<Article>>
+    fun getArticle(): Call<Article>
+    // fun getArticle(): Call<List<Data>>
+    // fun getArticle(): Call<BaseRes<Article>>
 }
