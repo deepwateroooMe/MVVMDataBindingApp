@@ -4,10 +4,6 @@ plugins {
     id 'kotlin-kapt' // 这个必须加,不然报错
 }
 
-// apply plugin: 'com.android.application'
-// apply plugin: "org.jetbrains.kotlin.android"
-// apply plugin: 'kotlin-android'
-
 android {
     namespace 'com.me.sample'
     compileSdk 32
@@ -86,5 +82,8 @@ dependencies {
     // // android-gif-drawable 地址：https://github.com/koral--/android-gif-drawable    
     // implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.7' // 这个是项目里暂时还没有用到,晚些时候可能会调试用
 }
+
+
+
 
 
