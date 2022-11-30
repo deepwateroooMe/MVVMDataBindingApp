@@ -19,7 +19,7 @@
       android:theme="@style/Theme.Sample"
       tools:ignore="GoogleAppIndexingWarning">
     <activity
-        android:name=".ui.MainActivity"
+        android:name="com.me.sample.ui.MainActivity"
         android:exported="true">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />

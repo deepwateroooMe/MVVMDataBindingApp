@@ -4,7 +4,7 @@
   <data>
     <variable
         name="adapter"
-        type="com.me.sample.ArticleAdapter"/>
+        type="com.me.sample.adapters.ArticleAdapter"/>
   </data>
 
   <!-- 因为改用了AndroidX RecyclerView,我就不能再用ListView的这种了,其实我也可以先试一下是否能如预期运行 -->

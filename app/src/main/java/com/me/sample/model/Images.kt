@@ -26,6 +26,7 @@ data class Images (
     val original_mp4: ImgFour,
     val preview: ImgFour,
     val preview_gif: ImgFour,
-    val preview_webp: ImgFour
+    val preview_webp: ImgFour,
+    val damn_still: ImgFour // 它就是叫了这个该死的名字,晚点儿等它如果抛异常了,再去搜看要怎么处理这么怪异的名字. 爱表哥,爱生活!!!
     // val 480w_still: ImgFour // 它就是叫了这个该死的名字,晚点儿等它如果抛异常了,再去搜看要怎么处理这么怪异的名字. 爱表哥,爱生活!!!
-)
+) 

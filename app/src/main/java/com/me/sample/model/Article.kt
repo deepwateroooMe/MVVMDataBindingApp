@@ -2,13 +2,7 @@ package com.me.sample.model
 
 data class Article (
     val datas: List<Data>,
-    val pagination: Pagination,
-    val meta: Meta
+    val total_count: Int,
+    val count: Int,
+    val offset: Int
 )
-
-// "data": [],
-// "meta": {
-//     "status": 401,
-//     "msg": "No API key found in request.",
-//     "response_id": ""
-// }

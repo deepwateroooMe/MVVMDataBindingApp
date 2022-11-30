@@ -1,9 +1,19 @@
 package com.me.sample.api
 
-object ApiNetWork : BaseNetwork() {
-    // private val apiService = ServiceCreator.create(ApiService::class.java)
-    private val apiService = NewsApi.getInstance()
+import com.me.sample.model.Article
+import com.me.sample.utils.loge
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-// 这个就是网络抓取api接口的具体实现. 数据库仓库在哪里呢,存到哪里去了 ?    
-    suspend fun getArticle() = apiService.getArticle().await().data
+import kotlin.coroutines.resume
+import kotlin.coroutines.resumeWithException
+import kotlin.coroutines.suspendCoroutine
+
+
+
+object ApiNetWork : BaseNetwork() {
+
+    private val apiService = ServiceCreator.create(NewsApi::class.java)
+    suspend fun getArticle() = apiService.getArticle().await().data // Article
 }

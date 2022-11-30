@@ -10,9 +10,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.me.sample.OnItemClickListener
 import com.me.sample.R
 import com.me.sample.RecyclerItemClickListener
-import com.me.sample.ArticleAdapter
+import com.me.sample.adapters.ArticleAdapter
 import com.me.sample.api.ApiNetWork
-import com.me.sample.databinding.ActivityMainBinding
+import com.me.sample.databinding.LayoutMainBinding
 import com.me.sample.repository.ArticleRepository
 import com.me.sample.utils.ArticleModelFactory
 import com.me.sample.utils.toast
@@ -28,13 +28,13 @@ class MainActivity : BaseActivity() {
     // binding: 这个类型自带app:adapter="@{}" 属性的吗?
     private val binding by lazy {
         // TODO: 检查这里名字写对了吗?
-        DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
+        DataBindingUtil.setContentView<LayoutMainBinding>(this, R.layout.layout_main)
     }
 
 // 第一次创建的时候:    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.layout_main)
         binding.lifecycleOwner = this
 
         post(viewModel.data).observe(this, Observer {

@@ -1,15 +1,12 @@
-package com.me.sample.utils
+package com.me.sample.adapters
 
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.me.sample.R
 import com.me.sample.application.BaseApplication
-import kotlin.annotation.AnnotationRetention.SOURCE
 
-object DataBindingHelper {
-
+object DataBindingAdapter {
     // 找到一个网络上的相关介绍: https://segmentfault.com/a/1190000042056504
     
      // * 用于appCompatImageView的自定义属性，bind:imgSrc，命名空间bind:可以省略，也就是写作 imgSrc亦可。可以用于加载url的图片
@@ -18,15 +15,14 @@ object DataBindingHelper {
      // * 这里还可以添加old 参数，获取修改新参数 之前对应的值。
 // 定义在这里,找不到: 感觉这里写的地方不对，没有方法上下文，晚点儿再改这个   
     @JvmStatic
-    @BindingAdapter(value = ["bind:imgUrl"], requireAll = false) // imgSrc ==> imgUrl
+    // @BindingAdapter(value = ["bind:imgUrl"], requireAll = false) // imgSrc ==> imgUrl
+    @BindingAdapter("imgUrl") 
     fun setImgUrl(view: AppCompatImageView, /*old: String?, */url: String) {
         Glide.with(BaseApplication.Companion.getApplicationContext())
+            .asGif()
             .load(url)
-            // .asGif() // Glide 居然找不到这个方法 ?
-        //  .placeholder(R.drawable.ic_launcher)
-//            .diskCacheStrategy(SOURCE)
-        // .error(R.mipmap.ic_launcher_round)
-        //  .centerInside()
+            .placeholder(R.mipmap.ic_launcher)
+            .error(R.mipmap.ic_launcher_round)
             .into(view)
     }
 } 

@@ -1,16 +1,17 @@
-package com.me.sample
+package com.me.sample.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.me.sample.ArticleAdapter.MyViewHolder
+import com.me.sample.R.layout
+import com.me.sample.adapters.ArticleAdapter.MyViewHolder
 import com.me.sample.databinding.LayoutItemBinding
 import com.me.sample.model.Data
 
 class ArticleAdapter(private val mList: List<Data>) : RecyclerView.Adapter<MyViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.layout_item, parent, false)
+        val v = LayoutInflater.from(parent.context).inflate(layout.layout_item, parent, false)
         // 不知道lay_item.xml自动生成的databinding 类的名字,两个这里是否写对了 ?        
         val bind = DataBindingUtil.bind<LayoutItemBinding>(v)
         return bind?.let { MyViewHolder(it) }!!
