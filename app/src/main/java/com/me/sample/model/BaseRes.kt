@@ -1,5 +1,6 @@
 package com.me.sample.model
 
+// 这个定义不对,因为它们的API接口设计比较特殊
 class BaseRes<T> {
     var status: Int = 0
     var msg: String = ""

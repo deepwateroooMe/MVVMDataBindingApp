@@ -1,16 +1,17 @@
 package com.me.sample.ui.view;
 
-import static com.bumptech.glide.Glide.*;
+import static com.bumptech.glide.Glide.with;
+import static com.google.android.material.internal.ContextUtils.getActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
 import androidx.databinding.BindingAdapter;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
+
 import com.google.android.material.imageview.ShapeableImageView;
-import com.me.sample.application.BaseApplication;
+import com.me.sample.application.BaseApplicationJava;
 import com.me.sample.R;
 
 public class CustomImageView extends ShapeableImageView {
@@ -32,16 +33,19 @@ public class CustomImageView extends ShapeableImageView {
         super(context, attrs);
     }
 
-// 下面是我从前项目中,直接复制过来的java源码
-    @BindingAdapter(value = {"imgUrl"}, requireAll = false)
-    public void setImgUrl(ImageView imageView, String url) {
-        with(this)
-            .asGif()
-            .load(url)
-            .placeholder(R.mipmap.ic_launcher)
-            .error(R.mipmap.ic_launcher_round)
-            .into(imageView);
-    }
+// // 下面是我从前项目中,直接复制过来的java源码
+//     @BindingAdapter(value = {"imgUrl"}, requireAll = false) // static 和 this不能一起用
+//     public static void setImgUrl(ImageView imageView, String url) {
+//          with(this)
+//         // with(BaseApplicationJava.getContext())
+// //        with(getActivity)
+//             .asGif()
+//             .load(url)
+//             .placeholder(R.mipmap.ic_launcher)
+//             .error(R.mipmap.ic_launcher_round)
+//             .into(imageView);
+//     }
+
 // 找到一个网络上的相关介绍: https://segmentfault.com/a/1190000042056504
 // 伪代码，请勿直接cv: 现在是,不明白应该把这个绑定在哪里设置 
 /** 

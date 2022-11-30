@@ -1,8 +1,7 @@
 package com.me.sample.model
 
-data class Article (
-    val datas: List<Data>,
-    val total_count: Int,
-    val count: Int,
-    val offset: Int
-)
+class Article {
+    val data: List<Data> = ArrayList()
+    val pagination: Pagination? = null
+    val meta: Meta = Meta(200, "OK", "")
+}
