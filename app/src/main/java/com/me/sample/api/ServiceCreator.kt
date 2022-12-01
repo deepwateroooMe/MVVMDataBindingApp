@@ -11,6 +11,7 @@ object ServiceCreator {
 
     private const val BASE_URL = "https://api.giphy.com"
 
+// 这里建了一个OkHttpClient的客户端    
     private val builder = OkHttpClient.Builder()
         .connectTimeout(60,TimeUnit.SECONDS)
         .callTimeout(60,TimeUnit.SECONDS)
@@ -18,6 +19,7 @@ object ServiceCreator {
         .writeTimeout(60,TimeUnit.SECONDS)
         .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
 
+// 这里接下来配置了一个Retrofit 的 客户端 ?     
     private val retrofit = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .client(builder.build())

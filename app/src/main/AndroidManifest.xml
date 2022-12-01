@@ -28,6 +28,10 @@
       <!-- <meta-data -->
       <!--     android:name="android.app.lib_name" -->
       <!--     android:value="" /> -->
+      <!-- 注册Glide的配置文件，以便Glide能够找到 -->
+      <meta-data
+          android:name="com.me.sample.application.GlideConfig"
+          android:value="GlideModule" />
     </activity>
   </application>
 </manifest>

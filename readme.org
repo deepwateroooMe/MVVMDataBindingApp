@@ -3,6 +3,10 @@
 #+author: deepwaterooo 
 
 * 大致设计计划 
+- 昨天把网络返回数据的解析写完了,今天看了看.gif加载不出来的,原因是.gif里的图处尺寸太大,分辨率太高,不太好加载
+  - 用一个迁移到AndroidX的小项目测试了一下里面经过压缩之后的.gif,显示是完全没有问题的,比如 https://media1.giphy.com/media/jrsWNmPJnIFv0jrLZy/200_d.gif
+  - 因为自己对前端,对图库没多在兴趣,本来还在考虑是否做数据持久化到数据库,但是因为测试不方便,觉得这个项目我可能就写到这里了,想把自己的游戏写完
+  - Temporatorily let it to be stopped here for now. Will catch up and make it more complete later when get a chance. 
 - 用kotlin语言,现在用这些新点儿的其它非java语言没有任何障碍.最主要就是熟悉一下新语言下设计布局layout等构建一个安卓应用的过程
 - 我觉得用 compose应该是最好的,可是这次暂时不用这个,等kotlin语言写得再熟悉一点儿再写那个包
 - MVVM: UI -> ViewModel -> Repository -> NetWork/Dao
@@ -12,7 +16,8 @@
 - 下面我们说一下项目中的细节：
   - 先思考一个问题？在项目中，我们使用协程，当页面销毁的时候，我们怎么取消请求？
   - 这里我么使用ViewModel自带的viewModelScope.launch,他会在页面销毁的时候自动取消请求，不过必须要使用AndroidX,我们可以写一个BaseViewModel
-
+- 还有一个可以参考的项目:改天可以再复制一下:　https://github.com/baiyuliang/MVVM.git
+　- 上面的是需要改文件夹的名称
 * 要求
 ** Description:
 - ● A simple Android app which will display a list or grid of news ar�cles
@@ -45,3 +50,8 @@
   - ○ Implementing application using logical components
   - ○ Unit test coverage
   - ○ Finish project quickly is a plus
+* 网络经历同样图库错误的知音,看着日期,只要与亲爱的表哥有点儿关联的,就会感觉亲切一点儿,爱表哥,爱生活!!!
+- https://www.jianshu.com/p/c3a0c64d6954
+- GitHub地址: https://github.com/shaopx/InCompleteGifDecoder  
+[[./pic/readme_20221130_161506.png]]
+- 他可能是包装了个相对个性化的库,将Glide图库的这个bug给改掉了,至少达到他想要达到的目的吧

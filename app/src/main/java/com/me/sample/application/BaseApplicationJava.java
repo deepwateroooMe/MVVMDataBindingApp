@@ -1,12 +1,11 @@
 package com.me.sample.application;
 
-import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Context;
 
 public class BaseApplicationJava extends Application {
 
-    @SuppressLint("StaticFieldLeak")
+//    @SuppressLint("StaticFieldLeak")
     public static Context context;
 
     @Override

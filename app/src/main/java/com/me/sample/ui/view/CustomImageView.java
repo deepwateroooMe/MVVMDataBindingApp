@@ -1,18 +1,9 @@
 package com.me.sample.ui.view;
 
-import static com.bumptech.glide.Glide.with;
-import static com.google.android.material.internal.ContextUtils.getActivity;
-
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
-import android.widget.ImageView;
 import androidx.annotation.Nullable;
-import androidx.databinding.BindingAdapter;
-
 import com.google.android.material.imageview.ShapeableImageView;
-import com.me.sample.application.BaseApplicationJava;
-import com.me.sample.R;
 
 public class CustomImageView extends ShapeableImageView {
 // 这些,这里暂时顾不上,先把RecyclerView连起来能够运行再说
@@ -36,9 +27,9 @@ public class CustomImageView extends ShapeableImageView {
 // // 下面是我从前项目中,直接复制过来的java源码
 //     @BindingAdapter(value = {"imgUrl"}, requireAll = false) // static 和 this不能一起用
 //     public static void setImgUrl(ImageView imageView, String url) {
-//          with(this)
 //         // with(BaseApplicationJava.getContext())
-// //        with(getActivity)
+//         // with(getActivity)
+//             with(this)
 //             .asGif()
 //             .load(url)
 //             .placeholder(R.mipmap.ic_launcher)
