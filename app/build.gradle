@@ -1,9 +1,8 @@
 plugins {
     id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'    // id 'kotlin-android'
-    id 'kotlin-kapt' // 这个必须加,不然报错
+    id 'org.jetbrains.kotlin.android' 
+    id 'kotlin-kapt' 
 }
-
 android {
     namespace 'com.me.sample'
     compileSdk 32
@@ -25,7 +24,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-// 看来他把它从底层也改进了一下?    
     externalNativeBuild {
         cmake {
             path "CMakeLists.txt"
@@ -42,10 +40,9 @@ android {
         enabled = true
     }
 }
-
 dependencies {
-    implementation project(path: ':library')
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(path: ':library')
     
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
@@ -80,14 +77,11 @@ dependencies {
 
 // 爱表哥,爱生活!!!    
     implementation 'com.github.bumptech.glide:glide:4.11.0' 
-// 下面这句完全没用: 对Kotlin完全没用,可是对java 可能有用    
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
     kapt 'com.github.bumptech.glide:compiler:4.11.0'    
     
-    // coil: 图片加载库 (因为glide加载动图,不知道怎么配context,所以又加了个图库)
-// TODO: 这个图库仍然是没有加载成功,只有RecyclerView可以出来    
     implementation("io.coil-kt:coil:1.1.1")
 
     // // android-gif-drawable 地址：https://github.com/koral--/android-gif-drawable    
     // implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.7' // 这个是项目里暂时还没有用到,晚些时候可能会调试用
-}
+} // 上面这个图库也不想再试了,想写完自己的游戏

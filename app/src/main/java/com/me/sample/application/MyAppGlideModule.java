@@ -27,15 +27,13 @@ public class MyAppGlideModule extends AppGlideModule {
     public void registerComponents(Context context, Glide glide, Registry registry) {
         super.registerComponents(context, glide, registry);
 
+// 修改编译错误的过程:搜到这个小众的第三方库,就顺手牵羊地整合进来了,并借它测试了一下,还不曾真正去学习它到底做了些什么,原理怎样        
         List imageHeaderParsers = registry.getImageHeaderParsers();
-
         com.spx.gifdecoder.ByteBufferGifDecoder byteBufferGifDecoder =
             new com.spx.gifdecoder.ByteBufferGifDecoder(context, imageHeaderParsers, glide.getBitmapPool(), glide.getArrayPool());
         registry.prepend(Registry.BUCKET_GIF, ByteBuffer.class, GifDrawable.class, byteBufferGifDecoder);
-
         registry.prepend(Registry.BUCKET_GIF,
                          InputStream.class,
                          GifDrawable.class,  new StreamGifDecoder(imageHeaderParsers, byteBufferGifDecoder, glide.getArrayPool()));
-
     }
 }

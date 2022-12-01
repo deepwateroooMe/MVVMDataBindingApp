@@ -1,8 +1,9 @@
 # For more information about using CMake with Android Studio, read the
 # documentation: https://d.android.com/studio/projects/add-native-code.html
-
 # Sets the minimum version of CMake required to build the native library.
 
+# 其实我并没有机会来看这里面他是如何实现改写的,只是看见,本能地觉得他尝试过并包装成了库,应该多多少少都会有很多值得我参考和学习的地方
+# 就直接整合进来了,迁移到了AndroidX,并没有改变其它
 cmake_minimum_required(VERSION 3.4.1)
 
 # Creates and names a library, sets it as either STATIC
@@ -12,10 +13,8 @@ cmake_minimum_required(VERSION 3.4.1)
 
 add_library( # Sets the name of the library.
              native-lib
-
              # Sets the library as a shared library.
              SHARED
-
              # Provides a relative path to your source file(s).
              src/main/cpp/native-lib.cpp )
 
@@ -27,7 +26,6 @@ add_library( # Sets the name of the library.
 
 find_library( # Sets the name of the path variable.
               log-lib
-
               # Specifies the name of the NDK library that
               # you want CMake to locate.
               log )
@@ -38,7 +36,6 @@ find_library( # Sets the name of the path variable.
 
 target_link_libraries( # Specifies the target library.
                        native-lib
-
                        # Links the target library to the log library
                        # included in the NDK.
                        ${log-lib} )
